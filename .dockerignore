@@ -1,0 +1,12 @@
+
+*
+!api/**
+!ml/**
+!web/**
+!infrastructure/**
+!docker-compose.yml
+!.env
+!.env.example
+!README.md
+!.gitignore
+!.gitattributes

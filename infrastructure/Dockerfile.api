@@ -1,0 +1,6 @@
+FROM node:lts-bullseye
+WORKDIR /app
+COPY api/package*.json ./
+RUN npm install
+COPY api .
+CMD ["npx", "ts-node", "src/index.ts"]

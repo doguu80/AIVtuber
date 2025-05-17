@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile.api
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  ml:
+    build:
+      context: .                # ここを . に変更
+      dockerfile: infrastructure/Dockerfile.ml
+    volumes:
+      - ./ml:/ml                # ノートブック編集用にマウントしておくと便利
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
